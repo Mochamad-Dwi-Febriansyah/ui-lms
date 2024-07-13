@@ -2,6 +2,7 @@
 
 :root{
     --utama: #F3B024;
+    --putih-utama: #ffefcd;
 }
 
  *{ 
@@ -62,6 +63,60 @@
 }
 .border-utama:focus{
     border: 1px solid var(--utama);
+}
+
+
+.img-bottom-variasi{
+    position: relative;
+    z-index: 1;
+}
+.bg-gradasi{
+    background: linear-gradient(#fff, var(--putih-utama));
+}
+.img-bottom-variasi:after {
+    content: ""; /* Pseudo-elemen harus memiliki konten meskipun kosong */
+    position: absolute; /* Mengatur posisi pseudo-elemen */
+    /* top: -200px;  */
+    left: 0; /* Mengatur posisi dari kiri (atau bisa menggunakan right, sesuai kebutuhan) */
+    width: 100%; /* Atur lebar sesuai kebutuhan */
+    height: 20%;  
+    bottom: 5%;
+    background-image: url('img/2s.png'); /* Menentukan gambar latar */
+    background-size: cover; /* Menyesuaikan ukuran gambar latar */
+    background-repeat: no-repeat;
+    z-index: -1; 
+}
+
+.z-index-999{
+    position: relative;
+    z-index: 999;
+}
+
+.btn-selengkapnya{
+    overflow: hidden;
+    transition: color 0.4s ease-in-out;
+}
+.btn-selengkapnya::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right,#fff, var(--putih-utama));
+    transition: left 0.4s ease-in-out;
+    z-index: -1;
+}
+.btn-selengkapnya:hover::before {
+    left: 100%;
+}
+.btn-selengkapnya:hover {
+    color: #fff;
+}
+
+.btn-selengkapnya > * {
+    position: relative;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
